@@ -1,9 +1,10 @@
 const refs = {
     input: document.querySelector('#font-size-control'),
-    iputText: document.querySelector('#text')
+    iputText: document.querySelector('#text'),
 }
-refs.input.addEventListener('input', oninputs)
+refs.input.addEventListener('input', resize);
 
-const oninputs = function () {
-    console.log(this.value)
+function resize(){
+    const textSize = refs.input.value;
+    refs.iputText.style.fontSize = textSize + 'px';
 }
