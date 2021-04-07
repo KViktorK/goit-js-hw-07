@@ -1,12 +1,13 @@
 const refs = {
-    input : document.querySelector('#name-input'),
-    name : document.querySelector('#name-output'),
-}
-console.log(refs.name.textContent)
-refs.input.addEventListener('input', onInputChange)
+    input: document.querySelector('#name-input'),
+    name: document.querySelector('#name-output'),
+};
+refs.input.addEventListener('input', onInputChange);
 
 function onInputChange(event) {
-    console.log(event.currentTarget.value)
-    refs.name.textContent = event.currentTarget.value
-}
+    refs.name.textContent = event.currentTarget.value;
+    if (event.currentTarget.value.length < 1) {
+        refs.name.textContent = 'незнакомец';
+    };
+};
 

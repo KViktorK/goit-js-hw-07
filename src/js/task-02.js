@@ -6,11 +6,17 @@ const ingredients = [
   'Зелень',
   'Приправи',
 ];
-const listEl = document.querySelector('#ingredients')
-    
-for (let ingredient of ingredients) {
-        const item = document.createElement('li')
-        item.textContent = `${ingredient}`
-        listEl.append(item)
-    }
+
+const listEl = document.querySelector('#ingredients');
+
+const createIngredientsList = ingredients.map(ingredient => {
+  const item = document.createElement('li');
+  item.insertAdjacentHTML(
+    'afterbegin',
+    `${ingredient}`,
+  )
+  return item
+});
+
+listEl.append(...createIngredientsList)
 
